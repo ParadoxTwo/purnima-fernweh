@@ -26,26 +26,20 @@ const ImageWithIndicators: React.FC<ImageWithIndicatorsProps> = ({
 }) => {
   return (
     <Wrapper>
-      <StyledImage src={src} alt={alt} margin={margin} />
+      <StyledImage src={src} alt={alt} $margin={margin} />
       {indicators.map((indicator, index) => (
         <IndicatorWrapper
           key={index}
-          startX={indicator.startX}
-          startY={indicator.startY}
-          endX={indicator.endX}
-          endY={indicator.endY}
-          rightSide={indicator.rightSide}
+          $startX={indicator.startX}
+          $startY={indicator.startY}
+          $endX={indicator.endX}
+          $endY={indicator.endY}
+          $rightSide={indicator.rightSide}
         >
           <IndicatorLabel style={{ left: indicator.endX, top: indicator.endY }}>
             {indicator.label}
           </IndicatorLabel>
-          <IndicatorLine
-            startX={indicator.startX}
-            startY={indicator.startY}
-            endX={indicator.endX}
-            endY={indicator.endY}
-            color={indicator.color || '#000'}
-          />
+          <IndicatorLine $color={indicator.color || '#000'} />
         </IndicatorWrapper>
       ))}
     </Wrapper>
@@ -59,42 +53,38 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
-const StyledImage = styled.img<{ margin: string }>`
+const StyledImage = styled.img<{ $margin: string }>`
   display: block;
   width: 100%;
   height: auto;
-  margin: ${({ margin }) => margin};
+  margin: ${({ $margin }) => $margin};
 `;
 
 const IndicatorWrapper = styled.div<{
-  startX: string;
-  startY: string;
-  endX: string;
-  endY: string;
-  rightSide?: boolean;
+  $startX: string;
+  $startY: string;
+  $endX: string;
+  $endY: string;
+  $rightSide?: boolean;
 }>`
   position: absolute;
   display: flex;
   align-items: center;
-  ${({ rightSide }) => (rightSide ? 'flex-direction: row-reverse;' : '')}
-  left: ${({ startX }) => startX};
-  top: ${({ startY }) => startY};
+  ${({ $rightSide }) => ($rightSide ? 'flex-direction: row-reverse;' : '')}
+  left: ${({ $startX }) => $startX};
+  top: ${({ $startY }) => $startY};
   height: 1px;
-  width: calc(${({ endX }) => endX} - ${({ startX }) => startX});
+  width: calc(${({ $endX }) => $endX} - ${({ $startX }) => $startX});
   z-index: 10;
   pointer-events: none; // Allow clicks to pass through
 `;
 
 const IndicatorLine = styled.div<{
-  startX: string;
-  startY: string;
-  endX: string;
-  endY: string;
-  color: string;
+  $color: string;
 }>`
   height: 1px;
   width: 100%;
-  background-color: ${({ color }) => color};
+  background-color: ${({ $color }) => $color};
 `;
 
 const IndicatorLabel = styled.div`
