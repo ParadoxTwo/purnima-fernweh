@@ -28,12 +28,28 @@ const NavItem = styled.li`
 `;
 
 export const NavigationBar: React.FC = () => (
-    <Navbar>
-        <NavList>
-            <NavItem><Link to="profile" smooth duration={500}>Profile</Link></NavItem>
-            <NavItem><Link to="experience" smooth duration={500}>Experience</Link></NavItem>
-            <NavItem><Link to="skills" smooth duration={500}>Skills</Link></NavItem>
-            <NavItem><Link to="education" smooth duration={500}>Education</Link></NavItem>
-        </NavList>
-    </Navbar>
+  <Navbar>
+    <NavList>
+      <NavItem>
+        <Link to="profile" smooth duration={500}>
+          Profile
+        </Link>
+      </NavItem>
+      <NavItem>
+        <Link to="experience" smooth duration={500}>
+          Experience
+        </Link>
+      </NavItem>
+      <NavItem>
+        <Link to="skills" smooth duration={500}>
+          Skills
+        </Link>
+      </NavItem>
+      <NavItem>
+        <Link to="education" smooth duration={500}>
+          Education
+        </Link>
+      </NavItem>
+    </NavList>
+  </Navbar>
 );

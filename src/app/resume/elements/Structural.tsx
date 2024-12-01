@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SectionTitle = styled.h2`
   font-size: 24px;
@@ -8,10 +8,10 @@ export const SectionTitle = styled.h2`
 `;
 
 export const List = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 20px;
 `;
 
 export const ListItem = styled.li`
